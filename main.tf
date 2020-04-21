@@ -19,6 +19,9 @@ resource "hcloud_floating_ip" "kubernetes" {
   home_location = var.location
   description = "Kubernetes Loadbalancer IP"
   name = "kubernetes-loadbalancer"
+  labels = {
+    "ingressip" = "true"
+  }
 }
 
 resource "hcloud_ssh_key" "kubernetes_localfile" {
